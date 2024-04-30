@@ -1,15 +1,43 @@
 package banco;
 
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import constantesBD.constantesFich;
 
 public class BancoMethodsFich {
    
-	private static ObjectOutputStream salida;
+ private static ObjectOutputStream salida;
+ 
+ /**
+  * Lee los clientes de cuentas.dat
+  * @param archivo
+  */
+ 
+ public static boolean mostrarClientes() {
+	 Cuenta cuenta = null;
+	 boolean vacio = true;
+	 
+	 try(ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(constantesFich.NOMFICHCUENTA))){
+		 
+		 while(true) {
+			 cuenta = (Cuenta) entrada.readObject();
+			 System.out.println(cuenta);
+			 vacio = false;
+			 
+		 }
+	 } catch(EOFException ex) {
+		 return vacio;
+	 }catch(Exception ex) {
+			System.out.println("Excepcion capturada en listarClientes" + ex.toString());
+			return vacio;
+	 }
+ }
 	
  public static void saveAccInFile(Cuenta cuenta) {
 	 try {
