@@ -14,7 +14,7 @@ public class Main {
 			 System.out.println("\nMenu:");
 	         System.out.println("1. Create Accounts and add to cuentas.dat");
 	         System.out.println("2. Show accounts from file cuentas.dat");
-	         System.out.println("3. Delete accounts from cuentas.dat");
+	         System.out.println("3. Delete accounts and file from cuentas.dat");
 	         System.out.println("4. Add the accounts from the cuentas.dat file to" + "\n"+
 	                               "the database");
 	         System.out.println("5. Select an account and witdraw the money");
@@ -36,6 +36,8 @@ public class Main {
 	        	   BancoMethodsFich.mostrarClientes();
 	            break;
 	           case 3:
+	        	   BancoMethodsFich.DeleteAll();
+	        	 
 	            break;
 	           case 4:
 	            break;

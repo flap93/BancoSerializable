@@ -74,7 +74,24 @@ public class BancoMethodsFich {
 		}
 	 
  }
-	
+ /**
+	 * Borrar todo del fichero y el fichero
+	 */
+ 
+ public static boolean DeleteAll() {
+	 File cuentasDat = new File(constantesFich.NOMFICHCUENTA);
+
+	 if(cuentasDat.delete()) {
+		 System.out.println("Borrado con exito");
+		 return true;
+	 } else {
+		 System.out.println("No se pudo borrar el fichero");
+		 return false;
+	 }
+}
+ 
+ 
+ 
  
  
  /**
